@@ -3,7 +3,11 @@ setup(
     name="bitport-cli",
     version="1.0",
     packages=find_packages(),
-    scripts=["bitport"],
+    entry_points={
+        'console_scripts': [
+            'bitport=bitport.bitport:main'
+        ]
+    },
     install_requires=["requests"],
     author="Chris Ellsworth",
     author_email="chris@ellsworth.io",
