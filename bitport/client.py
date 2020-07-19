@@ -20,10 +20,16 @@ def auth_headers():
 def parse_response(response):
     try:
         raw_json = response.json()
-        if raw_json['status'] == 'success':
-            return raw_json['data']
-        elif raw_json['status'] == 'error':
-            raise APIException(raw_json['errors'])
+        if 'status' in raw_json:
+            if raw_json['status'] == 'success':
+                return raw_json['data']
+            elif raw_json['status'] == 'error':
+                raise APIException(raw_json['errors'])
+            else:
+                return raw_json
+        elif 'error' in raw_json:
+            # oauth responses do not have a status key
+            raise APIException(raw_json['error'])
         else:
             return raw_json
     except ValueError:
@@ -42,9 +48,12 @@ def get(path, params={}):
     return parse_response(response)
 
 
-def post(path, data):
+def post(path, data, authenticated=True):
+    headers = {}
+    if authenticated:
+        headers = auth_headers()
     response = requests.post(
         API_URL + path,
         data=data,
-        headers=auth_headers())
+        headers=headers)
     return parse_response(response)

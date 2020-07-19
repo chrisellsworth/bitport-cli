@@ -11,17 +11,18 @@ def print_json(raw_json):
 
 
 def authenticate(code):
-    response = requests.post(
-        client.API_URL + "/oauth2/access-token",
+    response = client.post(
+        "/oauth2/access-token",
         data={
             'client_id': auth.APPLICATION_ID,
             'client_secret': auth.SECRET,
             'grant_type': 'code',
-            'code': code})
-    json = response.json()
-    access_token = json['access_token']
+            'code': code
+        },
+        authenticated=False)
+    access_token = response['access_token']
     auth.save_token(access_token)
-    expires_in = json['expires_in']
+    expires_in = response['expires_in']
     print("Authorized. Expires in {} seconds".format(expires_in))
 
 
