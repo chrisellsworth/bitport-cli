@@ -16,15 +16,15 @@ def main():
         metavar='code',
         help='authenticate the client with a code from https://bitport.io/get-access')
     group.add_argument(
-        '--folders',
-        metavar='folderPath',
-        const='all',
+        '--folder',
+        metavar='folderCode',
         nargs='?',
-        help='show info for all folders or a specific folder')
+        const='byPath',
+        help='get folder info (default is root folder)')
     group.add_argument(
         '--file',
         metavar='fileCode',
-        help='show file info')
+        help='get file info')
     group.add_argument(
         '--me',
         action='store_true',
@@ -48,8 +48,8 @@ def main():
         args = parser.parse_args()
         if args.auth:
             api.authenticate(args.auth)
-        elif args.folders:
-            api.folders(args.folders)
+        elif args.folder:
+            api.folders(args.folder)
         elif args.file:
             api.files(args.file)
         elif args.me:

@@ -3,7 +3,6 @@ import requests
 import json
 import client
 import auth
-import base64
 
 
 def print_json(raw_json):
@@ -26,11 +25,8 @@ def authenticate(code):
     print("Authorized. Expires in {} seconds".format(expires_in))
 
 
-def folders(folder_path):
-    params = {}
-    if folder_path != 'all':
-        params = {'folderPath': base64.b64encode(folder_path.encode('ascii'))}
-    print_json(client.get("/cloud/byPath", params))
+def folders(folder_code):
+    print_json(client.get("/cloud/{}".format(folder_code)))
 
 
 def files(file_code):
