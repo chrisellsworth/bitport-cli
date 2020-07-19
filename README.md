@@ -14,6 +14,10 @@ Command-line interface for [Bitport.io](https://bitport.io)
 - `bitport --transfers` - list ongoing transfers
 - `bitport --help` - show more options
 
-
 ## Notes
 - The authentication token is stored in `~/.bitport.ini`
+
+## Tips
+- All output is JSON. Pipe output to something like [`jq`](https://stedolan.github.io/jq/) to further parse as desired.
+- Set this interface as the handler for `magnet` links in the `links` browser.
+  - Add `magnet "/path/to/bitport --transfer \"%\"" 1` to `links.cfg`
