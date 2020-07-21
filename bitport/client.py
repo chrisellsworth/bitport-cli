@@ -48,6 +48,15 @@ def get(path, params={}):
     return parse_response(response)
 
 
+def get_raw(path, params={}):
+    response = requests.get(
+        API_URL + path,
+        params=params,
+        headers=auth_headers(),
+        allow_redirects=False)
+    return response
+
+
 def post(path, data, authenticated=True):
     headers = {}
     if authenticated:

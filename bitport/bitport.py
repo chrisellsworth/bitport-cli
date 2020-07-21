@@ -22,6 +22,10 @@ def main():
         const='byPath',
         help='get folder info (default is root folder)')
     group.add_argument(
+        '--zip',
+        metavar='folderCode',
+        help='get zip URL')
+    group.add_argument(
         '--file',
         metavar='fileCode',
         help='get file info')
@@ -50,6 +54,8 @@ def main():
             api.authenticate(args.auth)
         elif args.folder:
             api.folders(args.folder)
+        elif args.zip:
+            api.zip(args.zip)
         elif args.file:
             api.files(args.file)
         elif args.me:
