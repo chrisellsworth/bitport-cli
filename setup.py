@@ -8,7 +8,7 @@ setup(
             'bitport=bitport.bitport:main'
         ]
     },
-    install_requires=["requests"],
+    install_requires=["configparser", "requests"],
     author="Chris Ellsworth",
     author_email="chris@ellsworth.io",
     description="Bitport.io command-line interface",
