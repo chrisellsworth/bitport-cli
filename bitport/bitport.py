@@ -9,7 +9,7 @@ import api
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Bitport.io command-line client')
+        description='Bitport.io command-line interface (https://github.com/chrisellsworth/bitport-cli)')
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument(
         '--auth',
