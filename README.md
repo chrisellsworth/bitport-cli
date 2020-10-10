@@ -13,9 +13,10 @@ Command-line interface for [Bitport.io](https://bitport.io)
 
 ```
 usage: bitport [-h]
-               (--auth code | --folder [folderCode] | --zip folderCode | --file fileCode | --me | --transfer torrent | --transfers [token] | --version)
+               (--auth code | --folder [folderCode] | --zip folderCode | --file fileCode | --me | --transfer torrent | --delete_transfer torrent | --transfers [token] | --version)
 
-Bitport.io command-line client
+Bitport.io command-line interface (https://github.com/chrisellsworth/bitport-
+cli)
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -27,6 +28,8 @@ optional arguments:
   --file fileCode       get file info
   --me                  info about logged in user
   --transfer torrent    add a new torrent
+  --delete_transfer torrent
+                        remove a torrent
   --transfers [token]   list of ongoing transfer(s) or a specific transfer
   --version             show program's version number and exit
 ```

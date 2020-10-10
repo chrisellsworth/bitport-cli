@@ -45,6 +45,10 @@ def transfer(torrent):
     print_json(client.post("/transfers", {'torrent': torrent}))
 
 
+def delete_transfer(token):
+    print_json(client.delete("/transfers/{}".format(token)))
+
+
 def transfers(token):
     if token == 'all':
         print_json(client.get("/transfers"))

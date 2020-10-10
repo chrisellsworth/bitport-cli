@@ -38,6 +38,10 @@ def main():
         metavar='torrent',
         help='add a new torrent')
     group.add_argument(
+        '--delete_transfer',
+        metavar='torrent',
+        help='remove a torrent')
+    group.add_argument(
         '--transfers',
         metavar='token',
         const='all',
@@ -62,6 +66,8 @@ def main():
             api.me()
         elif args.transfer:
             api.transfer(args.transfer)
+        elif args.delete_transfer:
+            api.delete_transfer(args.delete_transfer)
         elif args.transfers:
             api.transfers(args.transfers)
     except client.APIException as exc:
