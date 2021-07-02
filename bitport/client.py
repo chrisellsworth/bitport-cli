@@ -1,8 +1,6 @@
-import requests
-
 import json
-import sys
-import auth
+import requests
+from bitport import auth
 
 API_URL = 'https://api.bitport.io/v2'
 

@@ -2,9 +2,8 @@
 
 import argparse
 import sys
-import os.path
-import client
-import api
+from bitport import client
+from bitport import api
 
 
 def main():

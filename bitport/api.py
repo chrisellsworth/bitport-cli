@@ -1,8 +1,6 @@
-import argparse
-import requests
 import json
-import client
-import auth
+from bitport import client
+from bitport import auth
 
 
 def print_json(raw_json):
