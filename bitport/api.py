@@ -28,7 +28,8 @@ def folders(folder_code):
 
 
 def zip(file_code):
-    print(client.get_raw("/cloud/{}/download-as-zip".format(file_code)).headers['Location'])
+    print(client.get_raw(
+        "/cloud/{}/download-as-zip".format(file_code)).headers['Location'])
 
 
 def files(file_code):

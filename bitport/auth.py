@@ -6,6 +6,7 @@ APPLICATION_ID = 43764
 SECRET = 'dipyhu21qu'
 CONFIG_PATH = os.path.expanduser('~/.bitport.ini')
 
+
 def save_token(token):
     config = configparser.ConfigParser()
     config['DEFAULT']['token'] = token

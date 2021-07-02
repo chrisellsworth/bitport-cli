@@ -65,6 +65,7 @@ def post(path, data, authenticated=True):
         headers=headers)
     return parse_response(response)
 
+
 def delete(path, params={}):
     response = requests.delete(
         API_URL + path,
