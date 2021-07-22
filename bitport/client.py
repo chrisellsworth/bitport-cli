@@ -16,6 +16,9 @@ def auth_headers():
 
 
 def parse_response(response):
+    if 'Location' in response.headers:
+        return get_url(response.headers['Location'])
+
     try:
         raw_json = response.json()
         if 'status' in raw_json:
@@ -39,8 +42,12 @@ def print_json(raw_json):
 
 
 def get(path, params={}):
+    return get_url(API_URL + path, params)
+
+
+def get_url(url, params={}):
     response = requests.get(
-        API_URL + path,
+        url,
         params=params,
         headers=auth_headers())
     return parse_response(response)
